@@ -1,0 +1,13 @@
+c=imread('face.bmp');
+sq=ones(3,3);
+ce=imerode(c,sq);
+cee=imerode(ce,sq);#«I»k
+figure,imshow(cee);
+
+
+ct=imdilate(cee,sq);#¿±µÈ
+ctt=imdilate(ct,sq);
+figure,imshow(ctt);
+
+fco=imclose(imopen(c,sq),sq);#§ÎºA«ßªimorphological filtering
+figure,imshow(fco);

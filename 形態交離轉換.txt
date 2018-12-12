@@ -1,0 +1,13 @@
+close all;#§ÎºA¥æÂ÷Âà´«
+clear all;
+t=imread('text.tif');
+b1=ones(1,6);
+b2=[1 1 1 1 1 1 1 1;1 0 0 0 0 0 0 1;1 1 1 1 1 1 1 1]; 
+tb1=imerode(t,b1);
+figure,imshow(tb1); 
+ 
+tb2=imerode(~t,b2);
+figure,imshow(tb2);
+hit_or_miss=tb1&tb2;
+[x,y]=find(hit_or_miss==1)
+figure,imshow(hit_or_miss);
