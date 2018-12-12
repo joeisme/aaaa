@@ -1,0 +1,20 @@
+close all;#連通部分
+clear all;
+sq=ones(3,3);
+sq1=ones(11,11);
+n=imread('nicework.tif');
+figure,imshow(n);
+nb=n&~imerode(n,sq);
+figure,imshow(nb);
+nf=regfill(nb,[74,52],sq);
+nf2=regfill(nb,[175,140],sq);
+
+figure,imshow(nf);
+figure,imshow(nb|nf2);
+figure,imshow(nb|nf);
+
+
+nb=components(n,[57,97],sq);
+nc=components(n,[57,97],sq1);
+figure,imshow(nb);
+figure,imshow(nc);

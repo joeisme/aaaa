@@ -1,0 +1,12 @@
+close all;#§äiªºÂI
+clear all;
+b1=ones(2,2);
+b2=ones(4,4);
+t=imread('text.tif');
+b2(2:3,2:3)=0;
+tb1=imerode(t,b1);
+tb2=imerode(~t,b2);
+hit_or_miss=tb1&tb2;
+[y,x]=find(hit_or_miss==1);
+figure,imshow(hit_or_miss);
+figure,imshow(t);
