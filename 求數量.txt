@@ -1,0 +1,35 @@
+clear all;#求數量
+close all;
+
+b=imread('bacteria.tif');
+bt=b<100;
+figure,imshow(bt); #求幾個
+
+bl=bwlabel(bt);
+c=max(bl(:))
+temp_min=inf;
+temp_max=0;
+
+for i=1:c #最小面積
+  a=(bl==i);
+  temp=sum(a(:));
+  if temp_min>temp
+    temp_min=temp
+    ind = i;
+  endif
+endfor
+temp_min 
+amin=(bl==ind);
+figure,imshow(amin);
+
+for n=1:c #最大面積
+  a=(bl==n);
+  temp=sum(a(:));
+  if temp_max<temp
+    temp_max=temp
+    ind = n;
+  endif
+endfor
+temp_max 
+amax=(bl==ind);
+figure,imshow(amax);

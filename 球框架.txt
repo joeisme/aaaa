@@ -1,0 +1,14 @@
+clear all;#²y®Ø¬[
+close all;
+f=inline('x(5)&~(x(2)*x(4)*x(6)*x(8))');
+lut=makelut(f,3);
+f8=inline('x(5)&~(x(1)*x(2)*x(3)*x(4)*x(5)*x(6)*x(7)*x(8)*x(9))');
+lut2=makelut(f8,3);
+c=imread('circles.tif');
+
+
+cw = applylut(c,lut);
+cw2 = applylut(c,lut2);
+figure,imshow(c);
+figure,imshow(cw);
+figure,imshow(cw2);

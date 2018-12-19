@@ -1,0 +1,7 @@
+clear all;#¶ZÂ÷Âà´«
+close all;
+mask1=[Inf 1 Inf;1 0 Inf;Inf Inf Inf]
+c=~imread('circles.tif');
+figure,imshow(c);
+cd=disttrans(c,mask1);
+figure,imshow(mat2gray(cd));
