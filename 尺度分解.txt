@@ -1,0 +1,17 @@
+clear all;
+close all;
+c=imread('cameraman.tif');
+[h,g,rh,rg]=daub(2);
+cw1=wt2d(double(c),h,g,1);
+%尺度分解
+m1=2.4*ones(2,2);m1(1,1)=1;m1=imresize(m1,128,'nearest');
+figure,imshow(mat2gray(cw1).*m1);
+cw3=wt2d(double(c),h,g,3);
+m3=2.4*ones(8,8);m3(1,1)=1;m3=imresize(m3,32,'nearest');
+figure,imshow(mat2gray(cw3).*m3);
+%標準分解法
+cw2=wt(wt(double(c),h,g,2)',h,g,2)';
+m2=2.4*ones(4,4);m2(1,1)=1;m2=imresize(m2,64,'nearest');
+cw3=wt(wt(double(c),h,g,3)',h,g,3)';
+figure,imshow(mat2gray(cw2).*m2);
+figure,imshow(mat2gray(cw3).*m3);

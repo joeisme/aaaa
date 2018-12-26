@@ -1,0 +1,13 @@
+clear all;
+close all;
+c=imread('caribou.tif');
+[h,g,rh,rg]=daub(2);
+figure,imshow(c);
+%¤pªiÀ£ÁY
+cw = wt2d(double(c),h,g,8);
+length(find(abs(cw)<=50))
+cw (find(abs(cw)<=50))=0;
+cw=round(cw);
+ci = iwt2d(cw,rh,rg,8);
+figure,imshow(mat2gray(ci));
+
